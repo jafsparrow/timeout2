@@ -1,16 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
+import { AngularFireModule  } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { NewsRoutingModule } from './news-routing.module';
 import { NewslistComponent } from './newslist/newslist.component';
 import { NewsDetailComponent } from './news-detail/news-detail.component';
 import { AddComponent } from './add/add.component';
 
+import { NewsService } from './common/services/news.service';
+
+import { MaterialModule } from './material.module';
+
 @NgModule({
   imports: [
     CommonModule,
-    NewsRoutingModule
+    NewsRoutingModule,
+    MaterialModule,
+    FlexLayoutModule
   ],
-  declarations: [NewslistComponent, NewsDetailComponent, AddComponent]
+  declarations: [NewslistComponent, NewsDetailComponent, AddComponent],
+  providers: [NewsService]
 })
 export class NewsModule { }

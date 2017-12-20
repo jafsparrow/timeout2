@@ -1,3 +1,26 @@
-<p>
-  newslit works!
-</p>
+<mat-card *ngFor="let news of newsList | async" class="news-summary-card-container">
+    <mat-card-header>
+      <mat-card-title>
+        {{ news.title}}
+      </mat-card-title>
+      <mat-card-subtitle>
+        <span>{{ news.author }} </span>
+        <span class="news-publish-date">: {{ news.published_date | date }}</span>
+      </mat-card-subtitle>
+    </mat-card-header>
+  
+    <mat-card-content [ngStyle]="{ 'background-image': 'url(' + news.image + ')','background-position': 'center','background-size': 'cover', 'min-height': '150px'}"
+      class="news-summary-container">
+      <div class="news-summary">
+        <div class="news-summary-text">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus delectus quis iusto ea ab sapiente dolore et magni alias.
+          Laboriosam officia in accusamus repellendus voluptatibus corrupti tempora optio, nemo tenetur!
+  
+        </div>
+      </div>
+    </mat-card-content>
+  
+    <mat-card-actions align="end">
+      <a mat-button [routerLink]="['/detail', news.key]">Read more..</a>
+    </mat-card-actions>
+  </mat-card>
