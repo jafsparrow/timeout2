@@ -12,6 +12,14 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSelectModule} from '@angular/material/select';
+import {MatNativeDateModule} from '@angular/material';
+
 
 @NgModule({
   imports: [
@@ -22,10 +30,17 @@ import {MatMenuModule} from '@angular/material/menu';
     MatTabsModule,
     MatToolbarModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     MatTableModule,
     MatSidenavModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatChipsModule,
+    MatProgressSpinnerModule,
+    MatFormFieldModule,
+    MatAutocompleteModule,
+    MatIconModule,
+    MatSelectModule
   ],
   exports: [
     MatButtonModule,
@@ -35,10 +50,17 @@ import {MatMenuModule} from '@angular/material/menu';
     MatTabsModule,
     MatToolbarModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     MatTableModule,
     MatSidenavModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatChipsModule,
+    MatProgressSpinnerModule,
+    MatFormFieldModule,
+    MatAutocompleteModule,
+    MatIconModule,
+    MatSelectModule
   ],
 })
 export class MaterialModule {}

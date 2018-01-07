@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { NewsService } from '../common/services/news.service';
 
+import {ClubDetailsService} from '../common/services/club-details.service';
+
+
 @Component({
   selector: 'app-newslist',
   templateUrl: './newslist.component.html',
@@ -10,12 +13,16 @@ import { NewsService } from '../common/services/news.service';
 export class NewslistComponent implements OnInit {
 
   newsList: Observable<any[]>;
-  constructor(private newsService: NewsService
-              ) {
+  isLoading: boolean;
+  constructor(private newsService: NewsService,
+              private clubDetailService: ClubDetailsService) {
+      this.isLoading = true;
       this.newsList = this.newsService.getNews();
+        
   }
 
   ngOnInit() {
+
   }
 
   goToDetail(news: any) {

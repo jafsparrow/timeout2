@@ -1,3 +1,46 @@
-<p>
-  add works!
-</p>
+<mat-card>
+
+  <form [formGroup]="articleAddFrom" (ngSubmit)= "submitNews()" 
+    class="form-container">
+   
+      <mat-form-field>
+          <input matInput placeholder="News Title" [formControl]="title">
+      </mat-form-field>
+      
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date" [formControl]="published_date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      
+      <mat-form-field>
+        <textarea matInput name="" id="" rows="3" [formControl]="summary"
+          placeholder="Add news summary"
+          matTextareaAutosize></textarea>
+      </mat-form-field>
+      <input placeholder="Add Image" type="file" text="Add new Image" (change)="fileSelection($event)">
+
+
+      <mat-form-field>
+        <mat-select placeholder="Clubs" [formControl]="tagged_clubs" multiple>
+          <mat-option *ngFor="let club of clubList" [value]="club.key">{{club.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+
+      <mat-form-field>
+          <textarea matInput  [formControl]="content"
+            placeholder="Add news content"
+            rows="6"
+            matTextareaAutosize></textarea>
+      </mat-form-field>
+      
+
+      <button mat-raised-button type="submit" [disabled]="!articleAddFrom.valid" color="primary">Submit</button>
+  </form>
+
+  
+
+  <!-- <button (click)="uploadImage()">upload image</button> -->
+</mat-card>

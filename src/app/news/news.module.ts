@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule  } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -14,15 +15,18 @@ import { AddComponent } from './add/add.component';
 import { NewsService } from './common/services/news.service';
 
 import { MaterialModule } from './material.module';
+import { ClubDetailsService } from './common/services/club-details.service';
+import { UserDetailsService } from './common/services/user-details.service';
 
 @NgModule({
   imports: [
     CommonModule,
     NewsRoutingModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ReactiveFormsModule
   ],
   declarations: [NewslistComponent, NewsDetailComponent, AddComponent],
-  providers: [NewsService]
+  providers: [NewsService, ClubDetailsService, UserDetailsService]
 })
 export class NewsModule { }

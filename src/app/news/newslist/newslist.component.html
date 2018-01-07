@@ -1,4 +1,5 @@
-<mat-card *ngFor="let news of newsList | async" class="news-summary-card-container">
+<div *ngIf="newsList | async as newslist; else loading">
+<mat-card *ngFor="let news of newslist" class="news-summary-card-container">
     <mat-card-header>
       <mat-card-title>
         {{ news.title}}
@@ -21,6 +22,10 @@
     </mat-card-content>
   
     <mat-card-actions align="end">
-      <a mat-button [routerLink]="['/detail', news.key]">Read more..</a>
+      <a mat-button [routerLink]="['/news/detail', 1]">Read more..</a>
     </mat-card-actions>
   </mat-card>
+</div>
+
+
+<ng-template #loading>Loading the news</ng-template>
