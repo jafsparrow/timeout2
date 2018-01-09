@@ -34,14 +34,14 @@
     <mat-card-content >
       <div class="news-summary">
         <div class="news-summary-text">
-          <div *ngIf="news.content">
+          <div *ngIf="news.content" [innerHTML]="news.content">
 
-            {{news.content}}
+           
           </div>
 
-          <div *ngIf="news.article">
+          <div *ngIf="news.article"  [innerHTML]="news.article">
 
-              {{news.article}}
+             
             </div>
   
         </div>

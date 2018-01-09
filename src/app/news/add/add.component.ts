@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { startWith, map } from 'rxjs/operators';
@@ -13,13 +14,13 @@ import { ClubDetailsService } from '../common/services/club-details.service';
   styleUrls: ['./add.component.css']
 })
 export class AddComponent implements OnInit {
-
+  submitting = false;
   startDate = new Date();
   title = new FormControl('', [Validators.required]);
   published_date = new FormControl('', [Validators.required]);
   summary = new FormControl('', [Validators.required, Validators.minLength(50)]);
   tagged_clubs = new FormControl('', [Validators.required]);
-  content = new FormControl('');
+  content = new FormControl('New article details..', Validators.minLength(5));
 
   selectedFiles: FileList | null;
   createdNewsKey: any = null;
@@ -37,7 +38,8 @@ export class AddComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private newService: NewsService,
-    private clubDetailService: ClubDetailsService) {
+    private clubDetailService: ClubDetailsService,
+    private route: Router) {
 
       this.articleAddFrom = this.formBuilder.group({
         title: this.title,
@@ -60,6 +62,7 @@ export class AddComponent implements OnInit {
 
 
   submitNews() {
+    this.submitting = true;
     console.log(this.articleAddFrom);
     this.newService.createNews(this.articleAddFrom.value)
       .then(res => {
@@ -69,6 +72,8 @@ export class AddComponent implements OnInit {
           if (this.selectedFiles && this.selectedFiles.length === 1) {
             this.uploadImage();
           }
+          this.submitting = false;
+          this.route.navigate(['news/list']);
         }
       });
   }

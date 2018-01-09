@@ -1,4 +1,9 @@
-<mat-card>
+<div id="overlay" [ngStyle]="{'display':submitting ? 'block' : 'none' }">
+  <div id="text">News is being added. please wait..!</div>
+
+</div>
+
+<mat-card *ngIf="!submitting">
 
   <form [formGroup]="articleAddFrom" (ngSubmit)= "submitNews()" 
     class="form-container">
@@ -32,12 +37,10 @@
 
 
       <mat-form-field>
-          <textarea matInput  [formControl]="content"
-            placeholder="Add news content"
-            rows="10"
-            ></textarea>
+        <textarea matInput [froalaEditor] [formControl]="content"></textarea>
       </mat-form-field>
       
+ 
 
       <button mat-raised-button type="submit" [disabled]="!articleAddFrom.valid" color="primary">Submit</button>
   </form>

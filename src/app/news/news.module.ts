@@ -18,13 +18,17 @@ import { MaterialModule } from './material.module';
 import { ClubDetailsService } from './common/services/club-details.service';
 import { UserDetailsService } from './common/services/user-details.service';
 
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 @NgModule({
   imports: [
     CommonModule,
     NewsRoutingModule,
     MaterialModule,
     FlexLayoutModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot()
+
   ],
   declarations: [NewslistComponent, NewsDetailComponent, AddComponent],
   providers: [NewsService, ClubDetailsService, UserDetailsService]
