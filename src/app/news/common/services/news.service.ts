@@ -18,7 +18,8 @@ export class NewsService {
   
   constructor(private db: AngularFirestore,
     private clubDetailService: ClubDetailsService) {
-    this.news = this.db.collection('news');
+    this.news = this.db.collection('news', ref => ref.where('is_active', '==', true)
+                                                      .where('status', '==', 'published'));
    }
 
 
@@ -36,7 +37,7 @@ export class NewsService {
   // read individual news.
 
   getDetailedNews(key: string) {
-    return this.db.collection('news').doc(key);
+    return this.db.collection('news').doc(key).valueChanges();
   }
   // create a new news.
   createNews(news: any) {
@@ -44,7 +45,7 @@ export class NewsService {
     news.author = 'Jafar';
     news.is_active = true;
     news.created_on = new Date();
-    news.status = 'Draft';
+    news.status = 'published';
 
     return this.news.add(news)
       .then( res =>  {

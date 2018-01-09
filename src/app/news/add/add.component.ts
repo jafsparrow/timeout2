@@ -5,6 +5,7 @@ import { startWith, map } from 'rxjs/operators';
 
 import { FileUpload } from '../common/modals/file-uploader';
 import { NewsService } from '../common/services/news.service';
+import { ClubDetailsService } from '../common/services/club-details.service';
 
 @Component({
   selector: 'app-add',
@@ -22,19 +23,21 @@ export class AddComponent implements OnInit {
 
   selectedFiles: FileList | null;
   createdNewsKey: any = null;
-  clubList = [ { name: 'PFC Kunnumpuram', key: 'key1'},
-      { name: 'KASC', key: 'key1'},
-      { name: 'Fifa Manjeri', key: 'key1'},
-      { name: 'Balck and White', key: 'key1'},
-      { name: 'Al Madina', key: 'key1'},
-      { name: 'ALS Makappuram', key: 'key1'}
-    ];
+  clubList = [];
+  // clubList = [ { name: 'PFC Kunnumpuram', key: 'key1'},
+  //     { name: 'KASC', key: 'key1'},
+  //     { name: 'Fifa Manjeri', key: 'key1'},
+  //     { name: 'Balck and White', key: 'key1'},
+  //     { name: 'Al Madina', key: 'key1'},
+  //     { name: 'ALS Makappuram', key: 'key1'}
+  //   ];
 
 
   articleAddFrom: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
-    private newService: NewsService) {
+    private newService: NewsService,
+    private clubDetailService: ClubDetailsService) {
 
       this.articleAddFrom = this.formBuilder.group({
         title: this.title,
@@ -47,6 +50,12 @@ export class AddComponent implements OnInit {
      }
 
   ngOnInit() {
+    // get all the club details in id and value.
+    this.clubDetailService.getAllclubs()
+      .subscribe(res => {
+        console.log(res);
+        this.clubList = res;
+      });
   }
 
 

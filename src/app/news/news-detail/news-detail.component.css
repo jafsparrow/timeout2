@@ -16,3 +16,7 @@
     width: auto;
     margin: auto auto;
 }
+
+.news-image {
+    max-height: 300px;
+}

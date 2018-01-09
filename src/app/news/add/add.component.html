@@ -18,22 +18,24 @@
           placeholder="Add news summary"
           matTextareaAutosize></textarea>
       </mat-form-field>
+
+      <mat-card-subtitle>Add Related Image</mat-card-subtitle>
       <input placeholder="Add Image" type="file" text="Add new Image" (change)="fileSelection($event)">
 
 
       <mat-form-field>
         <mat-select placeholder="Clubs" [formControl]="tagged_clubs" multiple>
-          <mat-option *ngFor="let club of clubList" [value]="club.key">{{club.name}}</mat-option>
+          <mat-option *ngFor="let club of clubList" [value]="club.id">{{club.name}}</mat-option>
         </mat-select>
       </mat-form-field>
-
+      
 
 
       <mat-form-field>
           <textarea matInput  [formControl]="content"
             placeholder="Add news content"
-            rows="6"
-            matTextareaAutosize></textarea>
+            rows="10"
+            ></textarea>
       </mat-form-field>
       
 
