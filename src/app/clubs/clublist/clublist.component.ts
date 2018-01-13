@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import {ClubsService} from '../common/services/clubs.service';
+import { Observable } from 'rxjs/Observable';
+import {_do } from 'rxjs/Operator/do';
+
 @Component({
   selector: 'app-clublist',
   templateUrl: './clublist.component.html',
@@ -7,9 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClublistComponent implements OnInit {
 
-  constructor() { }
+  clubs: Observable<any[]>;
+ 
+  constructor(private clubsService: ClubsService) { }
 
   ngOnInit() {
+    this.clubs = this.clubsService.getAllClubs()
   }
 
+  
 }

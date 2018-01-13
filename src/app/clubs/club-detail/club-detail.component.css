@@ -1,0 +1,32 @@
+.card-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0px;
+}
+.club-banner {
+    min-height: 200px;
+}
+
+.club-logo-container {
+    max-width: 150px;
+    margin: 0 auto;
+    padding-top: 10px;
+    text-align: center;
+}
+.club-logo {
+    max-width: 150px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.club-title {
+    color : white;
+}
+
+.club-details-container {
+    padding: 0 15px;
+}
+
+agm-map {
+    height: 300px;
+  }

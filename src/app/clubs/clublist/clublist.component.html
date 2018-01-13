@@ -1,3 +1,27 @@
-<p>
-  clublist works!
-</p>
+<div class="club-list-container">
+  <div *ngIf="clubs | async as clubs; else loading">
+    <mat-card *ngFor="let club of clubs" class="club-card">
+      <div fxLayout="columns" class="club-summary-card">
+        <div class="club-logo-container" fxFlex="20">
+          <img src="http://diylogodesigns.com/blog/wp-content/uploads/2015/12/creative-football-club-logo-design-uk-14.png" alt=""
+            class="club-logo">
+
+        </div>
+        <div fxFlex class="club-details-container">
+          <mat-card-title [routerLink]="['/clubs/detail', '1']">
+            {{club.name}}
+          </mat-card-title>
+          
+          <mat-card-subtitle>{{club.location}}</mat-card-subtitle>
+
+        </div>
+      </div>
+
+    </mat-card>
+
+  </div>
+
+
+  <ng-template #loading>Loading.....!</ng-template>
+
+</div>

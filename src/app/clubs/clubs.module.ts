@@ -1,18 +1,37 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// Firebase imports
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+import { AgmCoreModule } from '@agm/core';
+
+
+import { MaterialModule } from './material.module';
 import { ClubsRoutingModule } from './clubs-routing.module';
 import { ClublistComponent } from './clublist/clublist.component';
 import { DetailComponent} from './detail/detail.component';
 import { ClubViewComponent} from './club-view/club-view.component';
 import { AddComponent } from './add/add.component';
 import { ClubDetailComponent } from './club-detail/club-detail.component';
+import { ClubsService } from './common/services/clubs.service';
 
 @NgModule({
   imports: [
     CommonModule,
-    ClubsRoutingModule
+    ClubsRoutingModule,
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    MaterialModule,
+    FlexLayoutModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDi927U8H8Zp4VDzQM7llzbaJDqXlTAELs'
+    })
   ],
-  declarations: [ClublistComponent, DetailComponent, AddComponent, ClubViewComponent, ClubDetailComponent]
+  declarations: [ClublistComponent, DetailComponent, AddComponent, ClubViewComponent, ClubDetailComponent],
+  providers: [ClubsService]
 })
 export class ClubsModule { }

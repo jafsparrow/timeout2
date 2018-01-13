@@ -1,0 +1,33 @@
+
+.club-list-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.club-card-image {
+    height: 200px;
+    width: auto;
+}
+
+.club-summary-card {
+}
+.club-card {
+    margin: 5px;
+}
+.club-logo-container {
+    background-color: gray;
+    margin: 5px;
+    padding: 5px;
+}
+
+.club-logo {
+    width: 100%;
+    height: auto;
+    /* border: 2px solid green; */
+    border-radius: 50%;
+}
+
+.club-details-container {
+
+    padding: 15px;
+    padding-top: 20px;
+}
