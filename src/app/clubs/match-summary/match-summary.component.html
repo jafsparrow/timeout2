@@ -1,0 +1,17 @@
+<mat-card>
+  <div fxLayout="columns" fxLayoutAlign="space-around center">
+    <div fxFlex=30>
+
+      <app-team-view [team]="match.team1"></app-team-view>
+    </div>
+    <div fxFlex align="center">
+      
+      <p>11/12/2017 10:00pm</p>
+      <h3> {{match.team1.score}} :: {{match.team2.score}}</h3>
+    </div>
+
+    <div fxFlex=30>
+        <app-team-view [team]="match.team2"></app-team-view>
+    </div>
+  </div>
+</mat-card>

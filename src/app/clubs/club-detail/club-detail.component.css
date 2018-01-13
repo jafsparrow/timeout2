@@ -30,3 +30,7 @@
 agm-map {
     height: 300px;
   }
+
+  .tab-content {
+      padding: 15px;
+  }

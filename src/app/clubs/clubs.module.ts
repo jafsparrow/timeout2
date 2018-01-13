@@ -18,6 +18,9 @@ import { ClubViewComponent} from './club-view/club-view.component';
 import { AddComponent } from './add/add.component';
 import { ClubDetailComponent } from './club-detail/club-detail.component';
 import { ClubsService } from './common/services/clubs.service';
+import { SeasonTeaserComponent } from './season-teaser/season-teaser.component';
+import { MatchSummaryComponent } from './match-summary/match-summary.component';
+import { TeamViewComponent } from './match-summary/team-view/team-view.component';
 
 @NgModule({
   imports: [
@@ -31,7 +34,7 @@ import { ClubsService } from './common/services/clubs.service';
       apiKey: 'AIzaSyDi927U8H8Zp4VDzQM7llzbaJDqXlTAELs'
     })
   ],
-  declarations: [ClublistComponent, DetailComponent, AddComponent, ClubViewComponent, ClubDetailComponent],
+  declarations: [ClublistComponent, DetailComponent, AddComponent, ClubViewComponent, ClubDetailComponent, SeasonTeaserComponent, MatchSummaryComponent, TeamViewComponent],
   providers: [ClubsService]
 })
 export class ClubsModule { }

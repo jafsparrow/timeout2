@@ -13,23 +13,54 @@
             <ng-template mat-tab-label>
                 ⭐ Details
             </ng-template>
-            <p>Contact details</p>
-            <p>Address</p>
-            <p>Location</p>
 
-            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" streetViewControl="false">
-                <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-              </agm-map>
+            <mat-card-content class="tab-content">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo vel dolore quia esse consequatur, incidunt cumque quaerat totam ex neque assumenda voluptate laboriosam, est corrupti id laudantium error corporis natus.
+            </mat-card-content>
 
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue.
-            Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus.
-            In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec,
-            feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor,
-            orci enim rutrum enim, vel tempor sapien arcu a tellus.
+            <div fxLayout="columns" class="tab-content">
+              <div fxFlex="30">
+                Address
+              </div>
+              <div fxFlex>
+                <mat-card-subtitle>adfrees 1</mat-card-subtitle>
+                <mat-card-subtitle>adfrees 1</mat-card-subtitle>
+                <mat-card-subtitle>Pin -23723 1</mat-card-subtitle>
+              </div>
+            </div>
+            <!-- contact details -->
+            <div fxLayout="columns" class="tab-content">
+                <div fxFlex="30">
+                  contact number
+                </div>
+                <div fxFlex>
+                  <mat-card-subtitle>+91 9383493483</mat-card-subtitle>
+                </div>
+              </div>
+
+              <!-- location map -->
+
+              <div class="tab-content">
+                  <div>
+                    Location: Kunnumpuram
+                  </div>
+                  <div >
+                      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" streetViewControl="false">
+                          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                   </agm-map>
+                  </div>
+                </div>
+
         </mat-tab>
 
         <mat-tab label="Season">
           this season events
+
+          <p>it will display seasons tournaments conducted , participated and results.</p>
+          <div *ngFor="let event of events">
+
+            <app-season-teaser [matches]= "event"></app-season-teaser>
+          </div>
         </mat-tab>
 
         <mat-tab label="News">

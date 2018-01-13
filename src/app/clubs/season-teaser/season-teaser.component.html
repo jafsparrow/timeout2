@@ -1,0 +1,15 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Last some matches
+    </mat-card-title>
+
+  </mat-card-header>
+  <mat-card-content>
+      <div *ngFor="let match of machi">
+
+        <app-match-summary [match]="match"></app-match-summary>
+      </div>
+  
+    </mat-card-content>
+</mat-card>
