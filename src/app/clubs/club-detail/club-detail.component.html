@@ -54,12 +54,10 @@
         </mat-tab>
 
         <mat-tab label="Season">
-          this season events
-
-          <p>it will display seasons tournaments conducted , participated and results.</p>
+          <p>Here are some of the recent events by the clubs</p>
           <div *ngFor="let event of events">
 
-            <app-season-teaser [matches]= "event"></app-season-teaser>
+            <app-season-teaser [event]= "event"></app-season-teaser>
           </div>
         </mat-tab>
 

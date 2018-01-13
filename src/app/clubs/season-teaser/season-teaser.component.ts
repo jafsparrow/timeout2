@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./season-teaser.component.css']
 })
 export class SeasonTeaserComponent implements OnInit {
-  @Input() matches: any;
+  @Input() event: any;
   constructor() { }
 
   machi = [
@@ -23,7 +23,7 @@ export class SeasonTeaserComponent implements OnInit {
 
   ngOnInit() {
     console.log('season teaser component');
-    console.log(this.matches);
+    console.log(this.event);
   }
 
 }

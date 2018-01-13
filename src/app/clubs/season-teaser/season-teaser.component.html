@@ -1,12 +1,12 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title>
-      Last some matches
+      {{event.title}}
     </mat-card-title>
 
   </mat-card-header>
   <mat-card-content>
-      <div *ngFor="let match of machi">
+      <div *ngFor="let match of event.matches">
 
         <app-match-summary [match]="match"></app-match-summary>
       </div>
