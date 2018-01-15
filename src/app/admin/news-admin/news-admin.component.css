@@ -1,29 +1,12 @@
-.example-container {
-    display: flex;
-    flex-direction: column;
-    min-width: 300px;
-  }
-  
-  .example-header {
-    min-height: 64px;
-    padding: 8px 24px 0;
-  }
-  
-  .mat-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
-  
-  .mat-table {
-    overflow: auto;
-    max-height: 500px;
-  }
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 5px;
+}
 
-
-  .cdk-column-id  {
-    flex: 0 0 4%;
-  }
-  
-  .cdk-column-newsTitle {
-    flex: 0 0 60%;
-  }
+.button {
+  width: 100%;
+  padding: 2px;
+  margin: 2px;
+}
