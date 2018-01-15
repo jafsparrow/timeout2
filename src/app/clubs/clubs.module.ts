@@ -34,7 +34,16 @@ import { TeamViewComponent } from './match-summary/team-view/team-view.component
       apiKey: 'AIzaSyDi927U8H8Zp4VDzQM7llzbaJDqXlTAELs'
     })
   ],
-  declarations: [ClublistComponent, DetailComponent, AddComponent, ClubViewComponent, ClubDetailComponent, SeasonTeaserComponent, MatchSummaryComponent, TeamViewComponent],
+  declarations: [
+      ClublistComponent,
+      DetailComponent,
+      AddComponent,
+      ClubViewComponent,
+      ClubDetailComponent,
+      SeasonTeaserComponent,
+      MatchSummaryComponent,
+      TeamViewComponent
+    ],
   providers: [ClubsService]
 })
 export class ClubsModule { }

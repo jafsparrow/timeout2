@@ -21,6 +21,10 @@ const routes: Routes = [
   {
     path: 'clubs',
     loadChildren: './clubs/clubs.module#ClubsModule',
+  },
+  {
+    path: 'admin',
+    loadChildren: './admin/admin.module#AdminModule'
   }
 ];
 
