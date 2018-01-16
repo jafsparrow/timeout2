@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 
 import { NewsAdminService} from '../../common/services/news-admin.service';
+import { AlertPromise } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-news-dashboard',
@@ -51,6 +52,15 @@ export class NewsDashboardComponent implements AfterViewInit {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
+  }
+
+
+  publishNews() {
+    if ( confirm('Do you want to publish this news')) {
+      console.log('confirmed');
+    }
+    
+
   }
 }
 

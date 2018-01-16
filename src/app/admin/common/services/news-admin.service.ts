@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection  } from 'angularfire2/firestore';
 import { FileUpload } from '../modals/file-uploader';
 import * as firebase from 'firebase';
+import { News } from '../../../news/common/modals/news';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class NewsAdminService {
@@ -25,7 +27,7 @@ export class NewsAdminService {
       });
   }
 
-  readNews(id) {
+  readNews(id): Observable<any> {
     return this.news.doc(id).valueChanges();
   }
 
@@ -55,8 +57,8 @@ export class NewsAdminService {
     .catch(err => console.log(err));
 
   }
-  updateNews() {
-
+  updateNews(key, data) {
+    return this.news.doc(key).update(data);
   }
 
   deleteNews() {

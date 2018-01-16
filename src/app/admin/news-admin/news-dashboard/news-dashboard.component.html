@@ -40,6 +40,8 @@
       <mat-cell *matCellDef="let row">
         <a [routerLink]="['/admin/news/edit', row.key]"><mat-icon>mode_edit</mat-icon></a>
         <a ><mat-icon color="accent">delete</mat-icon></a>
+        <a ><mat-icon color="warn" (click)="publishNews()">publish</mat-icon></a>
+
       </mat-cell>
     </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
