@@ -11,7 +11,7 @@ export class NewsAdminService {
   private basePath = '/news/images';
 
   constructor(private db: AngularFirestore) {
-    this.news = this.db.collection('news', ref => ref.where('is_active', '==', true);
+    this.news = this.db.collection('news', ref => ref.where('is_active', '==', true));
                                                   // .where('test.5ZRSBNKpB1u2OJ0urK0w', '==', true));
   }
 

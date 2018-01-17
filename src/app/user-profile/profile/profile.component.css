@@ -1,0 +1,54 @@
+.card-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0px;
+}
+.club-banner {
+    min-height: 100px;
+}
+
+.club-logo-container {
+    max-width: 150px;
+    margin: 0 auto;
+    padding-top: 10px;
+    text-align: center;
+}
+.club-logo {
+    max-width: 150px;
+    height: auto;
+    border-radius: 50%;
+    border: 5px solid grey;
+}
+
+.club-title {
+    color : white;
+    font-size: 14px;
+}
+
+.club-details-container {
+    padding: 0 15px;
+}
+
+agm-map {
+    height: 300px;
+  }
+
+  .tab-content {
+      padding: 15px;
+  }
+
+  table td {
+      /* color: yellow; */
+    font-weight: 200;
+    }
+.details-container {
+    
+    padding: 15px;
+    margin: 5px;
+}
+
+.edit-icon {
+    font-size: 8px;
+    color: white;
+    display: hidden;
+}

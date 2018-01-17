@@ -1,8 +1,10 @@
 <mat-toolbar color="primary">
+  <mat-icon>home</mat-icon>
+  <span> </span>
   Time Out
   <span class="stretch-width"></span>
   <mat-menu #appMenu="matMenu">
-      <button mat-menu-item> Profile </button>
+      <button mat-menu-item [routerLink]="['/profile']"> Profile </button>
       <button mat-menu-item> Settings </button>
       <button mat-menu-item> Help </button>
       <button mat-menu-item [routerLink]="['/admin/news']"> Home </button>
