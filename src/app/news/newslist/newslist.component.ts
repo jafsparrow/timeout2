@@ -14,6 +14,7 @@ export class NewslistComponent implements OnInit {
 
   newsList: Observable<any[]>;
   isLoading: boolean;
+  defaultImage = 'http://www.eglsf.info/wp-content/uploads/submit_news.jpg';
   constructor(private newsService: NewsService,
               private clubDetailService: ClubDetailsService) {
       this.isLoading = true;

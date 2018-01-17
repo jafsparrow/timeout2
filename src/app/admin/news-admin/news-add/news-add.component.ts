@@ -66,6 +66,18 @@ export class NewsAddComponent implements OnInit {
   submitNews() {
     this.submitting = true;
     console.log(this.articleAddFrom);
+    // converting the tagged clubs into key value of boolean to make the query easy.
+    const clubs_tagged: Array<any> = this.articleAddFrom.value.tagged_clubs;
+    const tagged_clubs = {};
+
+    clubs_tagged.forEach(item => {
+      tagged_clubs[item] = true;
+    });
+
+    console.log(tagged_clubs);
+    // this.articleAddFrom.value['test'] = tagged_clubs;
+    this.articleAddFrom.value.tagged_clubs = tagged_clubs;
+
     this.newService.createNews(this.articleAddFrom.value)
       .then(res => {
         if (res) {

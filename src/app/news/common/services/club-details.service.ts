@@ -12,11 +12,19 @@ export class ClubDetailsService {
    }
 
    // this shoudl return observable of filtered clubs based on the key.
-  getTaggedClubs(keys) {
+  getTaggedClubs(clubs) {
     // this.getAllclubs()
     //   .filter(res => res[0].id === 'HYU2JPaH9ys1nKQOHKKE')
     //   .subscribe(res => console.log(res));
-
+    // hack - to get around the problem of having the tagged clubs as arrays earlier. check if its array 
+    let clubKeys = null;
+    if ( clubs.constructor !== Array) {
+        clubKeys = Object.keys(clubs);
+        console.log('club keys extracted to array');
+        console.log(clubKeys);
+    }
+    // if it is an array assign it direcly.
+    clubKeys = clubs;
   return this.clubs.snapshotChanges()
     .map(res => {
       return res.map(item => {
@@ -27,7 +35,7 @@ export class ClubDetailsService {
     })
     .map(res => {
       return res.filter(item => {
-        return keys.indexOf(item.id) > -1;
+        return clubKeys.indexOf(item.id) > -1;
       });
     });
     
