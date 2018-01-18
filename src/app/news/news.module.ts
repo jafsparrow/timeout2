@@ -14,20 +14,20 @@ import { AddComponent } from './add/add.component';
 
 import { NewsService } from './common/services/news.service';
 
-import { MaterialModule } from './material.module';
 import { ClubDetailsService } from './common/services/club-details.service';
 import { UserDetailsService } from './common/services/user-details.service';
 
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { SharedModule } from '../shared/shared.module';
 @NgModule({
   imports: [
     CommonModule,
     NewsRoutingModule,
-    MaterialModule,
     FlexLayoutModule,
     ReactiveFormsModule,
     FroalaEditorModule.forRoot(),
-    FroalaViewModule.forRoot()
+    FroalaViewModule.forRoot(),
+    SharedModule
 
   ],
   declarations: [NewslistComponent, NewsDetailComponent, AddComponent],

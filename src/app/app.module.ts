@@ -19,6 +19,9 @@ import { MainContainerComponent } from './container/main-container/main-containe
 
 import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
+import { SharedModule } from './shared/shared.module';
+import { NewsTeaserComponent } from './home/news-teaser/news-teaser.component';
+import { NewsTeaserService } from './common/services/news-teaser.service';
 
 
 @NgModule({
@@ -29,6 +32,7 @@ import { HomeComponent } from './home/home.component';
     SidenavComponent,
     MainContainerComponent,
     HomeComponent,
+    NewsTeaserComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,9 +43,10 @@ import { HomeComponent } from './home/home.component';
     FlexLayoutModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule.forRoot()
   ],
-  providers: [],
+  providers: [NewsTeaserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -63,26 +63,25 @@ export class AuthService {
 
   ///// Role-based Authorization //////
 canRead(user: User): boolean {
-  const allowed = ['admin', 'editor', 'subscriber']
+  const allowed = ['admin', 'editor', 'subscriber'];
   return this.checkAuthorization(user, allowed);
 }
 canEdit(user: User): boolean {
-  const allowed = ['admin', 'editor']
+  const allowed = ['admin', 'editor'];
   return this.checkAuthorization(user, allowed);
 }
 canDelete(user: User): boolean {
-  const allowed = ['admin']
+  const allowed = ['admin'];
   return this.checkAuthorization(user, allowed);
 }
 // determines if user has matching role
 private checkAuthorization(user: User, allowedRoles: string[]): boolean {
-  if (!user) {return false; }
-  for (const role of allowedRoles) {
-    if ( user.roles[role] ) {
-      return true;
+    if (!user) {return false; }
+    for (const role of allowedRoles) {
+      if ( user.roles[role] ) {
+        return true;
+      }
     }
+    return false;
   }
-  return false;
-}
-
 }

@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-
-import { MaterialModule} from './material.module';
 import {AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { NewsAdminComponent } from './news-admin/news-admin.component';
@@ -18,18 +16,26 @@ import { NewsDashboardComponent } from './news-admin/news-dashboard/news-dashboa
 
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { NewsEditComponent } from './news-admin/news-edit/news-edit.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule,
     AdminRoutingModule,
     FroalaEditorModule.forRoot(),
-    FroalaViewModule.forRoot()
+    FroalaViewModule.forRoot(),
+    SharedModule
   ],
-  declarations: [AdminComponent, NewsAdminComponent, EventAdminComponent, FixtureAdminComponent, NewsAddComponent, NewsDashboardComponent, NewsEditComponent],
+  declarations: [
+    AdminComponent,
+    NewsAdminComponent,
+    EventAdminComponent,
+    FixtureAdminComponent,
+    NewsAddComponent,
+    NewsDashboardComponent,
+    NewsEditComponent],
   providers: [ClubAdminService, NewsAdminService]
 })
 export class AdminModule { }

@@ -1,11 +1,15 @@
 <mat-tab-group>
     <mat-tab label="News" style="width: 50%;">
-      <h1>Some tab content</h1>
-      <p>...</p>
-      <a [routerLink]="['/admin/news']"></a>
+
+      <app-news-teaser *ngIf="!isFavNewsLoading" [news]="favNews" teaserTitle="Liverpool News"></app-news-teaser>
+      <app-news-teaser *ngIf="!isNewsLoading" [news]="news" teaserTitle="Top News"></app-news-teaser>
     </mat-tab>
     <mat-tab label="Matches" style="width: 50%;">
-      <h1>Some more tab content</h1>
+      <h1>This will display all the recent events of fav club and other events</h1>
       <p>...</p>
     </mat-tab>
+    <mat-tab label="Announcements" style="width: 50%;">
+        <h1>This will display all the recent announcements of fav club and other clubs</h1>
+        <p>...</p>
+      </mat-tab>
   </mat-tab-group>
