@@ -1,7 +1,8 @@
 <mat-tab-group>
     <mat-tab label="News" style="width: 50%;">
 
-      <app-news-teaser *ngIf="!isFavNewsLoading" [news]="favNews" teaserTitle="Liverpool News"></app-news-teaser>
+      <app-news-teaser *ngIf="!isFavNewsLoading else loading" [news]="favNews" teaserTitle="Liverpool News"></app-news-teaser>
+      <ng-template #loading>Loading top news</ng-template>
       <app-news-teaser *ngIf="!isNewsLoading" [news]="news" teaserTitle="Top News"></app-news-teaser>
     </mat-tab>
     <mat-tab label="Matches" style="width: 50%;">

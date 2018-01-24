@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ContainerComponent } from './container/container.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 const routes: Routes = [
   {
@@ -29,6 +31,14 @@ const routes: Routes = [
   {
     path: 'profile',
     loadChildren: './user-profile/user-profile.module#UserProfileModule'
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'signUp',
+    component: SignUpComponent
   }
 ];
 

@@ -22,6 +22,8 @@ import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { NewsTeaserComponent } from './home/news-teaser/news-teaser.component';
 import { NewsTeaserService } from './common/services/news-teaser.service';
+import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 @NgModule({
@@ -33,18 +35,21 @@ import { NewsTeaserService } from './common/services/news-teaser.service';
     MainContainerComponent,
     HomeComponent,
     NewsTeaserComponent,
+    LoginComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
+
+    SharedModule.forRoot(),
     FormsModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MaterialModule,
-    SharedModule.forRoot()
+    MaterialModule
   ],
   providers: [NewsTeaserService],
   bootstrap: [AppComponent]

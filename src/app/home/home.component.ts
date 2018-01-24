@@ -11,11 +11,13 @@ import { tap } from 'rxjs/operators';
 })
 export class HomeComponent implements OnInit {
   news: Array<any>;
-  isNewsLoading = true;
+  isNewsLoading: boolean;
   favNews: Array<any>;
   isFavNewsLoading = true;
   constructor(private authSerivice: AuthService,
-              private newsTeaser: NewsTeaserService) { }
+              private newsTeaser: NewsTeaserService) {
+                this.isNewsLoading = true;
+               }
 
   ngOnInit() {
     this.newsTeaser.getRecentTenNews()
