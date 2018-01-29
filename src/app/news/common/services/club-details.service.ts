@@ -9,8 +9,14 @@ export class ClubDetailsService {
   clubs: AngularFirestoreCollection<any>;
   constructor(private db: AngularFirestore) {
     this.clubs = this.db.collection('clubs');
+    console.log('club details dservice.');
+    this.testSubcollection();
    }
 
+   testSubcollection() {
+    this.db.collection('fxtures', ref => ref.where('teams.team1.playing', '==', true)).snapshotChanges()
+      .subscribe(res => console.log(res));
+   }
    // this shoudl return observable of filtered clubs based on the key.
   getTaggedClubs(clubs) {
     // this.getAllclubs()

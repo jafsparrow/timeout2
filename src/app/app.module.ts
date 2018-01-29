@@ -20,10 +20,10 @@ import { MainContainerComponent } from './container/main-container/main-containe
 import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
-import { NewsTeaserComponent } from './home/news-teaser/news-teaser.component';
 import { NewsTeaserService } from './common/services/news-teaser.service';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { SnackbarComponent } from './snackbar/snackbar.component';
 
 
 @NgModule({
@@ -34,9 +34,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     SidenavComponent,
     MainContainerComponent,
     HomeComponent,
-    NewsTeaserComponent,
     LoginComponent,
     SignUpComponent,
+    SnackbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +51,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     AppRoutingModule,
     MaterialModule
   ],
+  entryComponents: [SnackbarComponent],
   providers: [NewsTeaserService],
   bootstrap: [AppComponent]
 })

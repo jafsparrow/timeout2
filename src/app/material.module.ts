@@ -17,6 +17,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import {MatNativeDateModule} from '@angular/material';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
@@ -44,7 +45,8 @@ import {MatSortModule} from '@angular/material/sort';
     MatIconModule,
     MatSelectModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatSnackBarModule
   ],
   exports: [
     MatButtonModule,
@@ -66,7 +68,8 @@ import {MatSortModule} from '@angular/material/sort';
     MatIconModule,
     MatSelectModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatSnackBarModule
   ],
 })
 export class MaterialModule {}

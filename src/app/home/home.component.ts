@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   isNewsLoading: boolean;
   favNews: Array<any>;
   isFavNewsLoading = true;
+  isUserLoggedIn = true;
   constructor(private authSerivice: AuthService,
               private newsTeaser: NewsTeaserService) {
                 this.isNewsLoading = true;
