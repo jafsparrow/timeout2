@@ -10,6 +10,11 @@
     <mat-tab label="Matches" style="width: 50%;">
       <h1>This will display all the recent events of fav club and other events</h1>
       <p>...</p>
+      <div *ngFor="let match of events$|async">
+        {{match.date | date}}
+      </div>
+        
+
     </mat-tab>
     <mat-tab label="Announcements" style="width: 50%;">
         <h1>This will display all the recent announcements of fav club and other clubs</h1>

@@ -21,6 +21,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 
@@ -46,7 +47,8 @@ import {MatSortModule} from '@angular/material/sort';
     MatSelectModule,
     MatPaginatorModule,
     MatSortModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatStepperModule
   ],
   exports: [
     MatButtonModule,
@@ -69,7 +71,8 @@ import {MatSortModule} from '@angular/material/sort';
     MatSelectModule,
     MatPaginatorModule,
     MatSortModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatStepperModule
   ],
 })
 export class MaterialModule {}

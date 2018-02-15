@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection  } from 'angularfire2/firestore';
+import { Match } from '../modals/match';
 
 /**
  * this is where we check the user has the given role for a club. if he does display accordingly.
@@ -9,6 +10,8 @@ import { AngularFirestore, AngularFirestoreCollection  } from 'angularfire2/fire
 export class ClubAdminService {
 
   clubs: AngularFirestoreCollection<any>;
+  events: AngularFirestoreCollection<any>;
+
   constructor(private db: AngularFirestore) {
     this.clubs = this.db.collection('clubs');
    }
@@ -44,4 +47,14 @@ export class ClubAdminService {
       });
     });
   }
+
+  // A method for creating a new Match.
+  createMatch(match: Match) {
+
+  }
+  // A method for creating fixtures for the match.
+  createFixture(match: any, fixture) {
+
+  }
+  // A method for adding live tickers.
 }

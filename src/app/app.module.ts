@@ -24,6 +24,8 @@ import { NewsTeaserService } from './common/services/news-teaser.service';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
+import { EventsService } from './common/services/events.service';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 
 @NgModule({
@@ -52,7 +54,7 @@ import { SnackbarComponent } from './snackbar/snackbar.component';
     MaterialModule
   ],
   entryComponents: [SnackbarComponent],
-  providers: [NewsTeaserService],
+  providers: [NewsTeaserService, EventsService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,12 +6,19 @@ import { NewsAdminComponent } from './news-admin/news-admin.component';
 import { NewsAddComponent } from './news-admin/news-add/news-add.component';
 import { NewsDashboardComponent } from './news-admin/news-dashboard/news-dashboard.component';
 import { NewsEditComponent } from './news-admin/news-edit/news-edit.component';
+import { AuthGuard } from '../shared/guards/auth.guard';
+import { EventAdminComponent } from './event-admin/event-admin.component';
+import { EventAddComponent } from './event-admin/event-add/event-add.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'news',
+    redirectTo: 'dash',
     pathMatch: 'full'
+  },
+  {
+    path: 'dash',
+    component: AdminComponent
   },
   {
     path: 'news',
@@ -29,12 +36,22 @@ const routes: Routes = [
       },
       {
         path: 'add',
-        component: NewsAddComponent
+        component: NewsAddComponent,
       },
       {
         path: 'edit/:id',
         component: NewsEditComponent,
         pathMatch: 'full'
+      }
+    ]
+  },
+  {
+    path: 'events',
+    component: EventAdminComponent,
+    children: [
+      {
+        path: 'add',
+        component: EventAddComponent
       }
     ]
   }

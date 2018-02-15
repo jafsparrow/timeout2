@@ -3,6 +3,7 @@ import { AuthService } from '../shared/service/auth.service';
 import { NewsTeaserService } from '../common/services/news-teaser.service';
 import { Observable } from 'rxjs/Observable';
 import { tap } from 'rxjs/operators';
+import { EventsService } from '../common/services/events.service';
 
 @Component({
   selector: 'app-home',
@@ -14,9 +15,12 @@ export class HomeComponent implements OnInit {
   isNewsLoading: boolean;
   favNews: Array<any>;
   isFavNewsLoading = true;
-  isUserLoggedIn = true;
+  isUserLoggedIn = false;
+
+  events$: Observable<any>;
   constructor(private authSerivice: AuthService,
-              private newsTeaser: NewsTeaserService) {
+              private newsTeaser: NewsTeaserService,
+              private matcheService: EventsService) {
                 this.isNewsLoading = true;
                }
 
@@ -37,6 +41,9 @@ export class HomeComponent implements OnInit {
                     }
                   });
 
+   this.events$ = this.matcheService.getThisWeekMatches().valueChanges();
   }
+
+
 
 }

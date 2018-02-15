@@ -17,6 +17,7 @@ import { NewsDashboardComponent } from './news-admin/news-dashboard/news-dashboa
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { NewsEditComponent } from './news-admin/news-edit/news-edit.component';
 import { SharedModule } from '../shared/shared.module';
+import { EventAddComponent } from './event-admin/event-add/event-add.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import { SharedModule } from '../shared/shared.module';
     FixtureAdminComponent,
     NewsAddComponent,
     NewsDashboardComponent,
-    NewsEditComponent],
+    NewsEditComponent,
+    EventAddComponent],
   providers: [ClubAdminService, NewsAdminService]
 })
 export class AdminModule { }
