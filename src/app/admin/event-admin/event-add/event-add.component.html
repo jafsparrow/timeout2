@@ -3,46 +3,90 @@
   <mat-horizontal-stepper [linear]="true" #stepper="matHorizontalStepper">
     <mat-step [stepControl]="eventAddForm">
       <form [formGroup]="eventAddForm">
-      <mat-card *ngIf="!submitting" class="event-form-container">
+          <ng-template matStepLabel>Please add tournament detail</ng-template>
+            <mat-card *ngIf="!submitting" class="event-form-container">
+                <mat-form-field>
+                  <input matInput placeholder="Event Name" [formControl]="name">
+                </mat-form-field>
 
-              
-          <mat-form-field>
-            <input matInput placeholder="Event Name" [formControl]="name">
-          </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Date" [formControl]="date">
+                </mat-form-field>
 
-          <mat-form-field>
-            <input matInput placeholder="Date" [formControl]="date">
-          </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Place" [formControl]="location">
+                </mat-form-field>
 
-          <mat-form-field>
-            <input matInput placeholder="Place" [formControl]="location">
-          </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="District">
+                </mat-form-field>
 
-          <mat-form-field>
-            <input matInput placeholder="District">
-          </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Panchayat">
+                </mat-form-field>
 
-          <mat-form-field>
-            <input matInput placeholder="Panchayat">
-          </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="State" >
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="State">
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Description">
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="State">
+                </mat-form-field>
 
-          <mat-form-field>
-            <input matInput placeholder="State" >
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput placeholder="State">
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput placeholder="Description">
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput placeholder="State">
-          </mat-form-field>
-
-      </mat-card>
+            </mat-card>
 
     <button mat-raised-button type="submit" [disabled]="!eventAddForm.valid" color="primary">Submit</button>
   </form>
+
+</mat-step>
+
+
+<mat-step [stepControl]="eventAddForm">
+    <form [formGroup]="eventAddForm">
+        <ng-template matStepLabel>Location details</ng-template>
+          <mat-card *ngIf="!submitting" class="event-form-container">
+              <mat-form-field>
+                <input matInput placeholder="Event Name" [formControl]="name">
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput placeholder="Date" [formControl]="date">
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput placeholder="Place" [formControl]="location">
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput placeholder="District">
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput placeholder="Panchayat">
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput placeholder="State" >
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="State">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Description">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="State">
+              </mat-form-field>
+
+          </mat-card>
+
+  <button mat-raised-button type="submit" [disabled]="!eventAddForm.valid" color="primary">Submit</button>
+</form>
 
 </mat-step>
 
