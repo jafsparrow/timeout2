@@ -26,6 +26,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
 import { EventsService } from './common/services/events.service';
 import { AuthGuard } from './shared/guards/auth.guard';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { AuthGuard } from './shared/guards/auth.guard';
     LoginComponent,
     SignUpComponent,
     SnackbarComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,

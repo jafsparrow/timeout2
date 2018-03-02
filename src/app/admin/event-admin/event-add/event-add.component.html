@@ -1,6 +1,6 @@
 
-
-  <mat-horizontal-stepper [linear]="true" #stepper="matHorizontalStepper">
+<!-- 
+  <mat-horizontal-stepper [linear]="true" #stepper="matHorizontalStepper" (selectionChange)="selectionChange($event)">
     <mat-step [stepControl]="eventAddForm">
       <form [formGroup]="eventAddForm">
           <ng-template matStepLabel>Please add tournament detail</ng-template>
@@ -41,53 +41,70 @@
             </mat-card>
 
     <button mat-raised-button type="submit" [disabled]="!eventAddForm.valid" color="primary">Submit</button>
+    <div>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+
+
+
+
+
+
+
   </form>
 
 </mat-step>
 
 
-<mat-step [stepControl]="eventAddForm">
-    <form [formGroup]="eventAddForm">
-        <ng-template matStepLabel>Location details</ng-template>
-          <mat-card *ngIf="!submitting" class="event-form-container">
-              <mat-form-field>
-                <input matInput placeholder="Event Name" [formControl]="name">
-              </mat-form-field>
 
-              <mat-form-field>
-                <input matInput placeholder="Date" [formControl]="date">
-              </mat-form-field>
 
-              <mat-form-field>
-                <input matInput placeholder="Place" [formControl]="location">
-              </mat-form-field>
+</mat-horizontal-stepper> -->
+<mat-card class="event-form-container">
 
-              <mat-form-field>
-                <input matInput placeholder="District">
-              </mat-form-field>
-
-              <mat-form-field>
-                <input matInput placeholder="Panchayat">
-              </mat-form-field>
-
-              <mat-form-field>
-                <input matInput placeholder="State" >
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput placeholder="State">
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput placeholder="Description">
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput placeholder="State">
-              </mat-form-field>
-
-          </mat-card>
-
-  <button mat-raised-button type="submit" [disabled]="!eventAddForm.valid" color="primary">Submit</button>
-</form>
-
-</mat-step>
-
-</mat-horizontal-stepper>
+  <mat-spinner
+    color="accent"
+    diameter="30"
+    *ngIf="isSubmitting"
+    ></mat-spinner>
+  <form [formGroup]="eventAddForm" (ngSubmit)= "addEvent()" disabled="true">
+    <mat-horizontal-stepper  linear>
+      <mat-step label="Basic Info">
+         <mat-form-field>
+            <input matInput placeholder="Tournament Name" formControlName="name">
+        </mat-form-field>
+    
+        <mat-form-field>
+          <input matInput placeholder="Location" formControlName="location">
+        </mat-form-field>
+    
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    
+        <mat-form-field>
+          <mat-select placeholder="Game" formControlName="type">
+            <mat-option *ngFor="let game of games" [value]="game">{{game}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+    
+    
+        <mat-form-field>
+          <input matInput placeholder="First Price" formControlName="firstPrize">
+        </mat-form-field>
+          <div>
+            <button mat-button matStepperNext type="button">Next</button>
+          </div>
+      </mat-step>
+      <mat-step label="Prize Details" >
+        ...
+        <div>
+          <button mat-button matStepperPrevious type="button">Back</button>
+          <button mat-button matStepperNext type="submit">Next</button>
+        </div>
+      </mat-step>
+      ...
+    </mat-horizontal-stepper>
+  </form>
+</mat-card>
