@@ -52,9 +52,9 @@ const routes: Routes = [
       {
         path: 'add',
         component: EventAddComponent
-      }
+      },
     ]
-  }
+  },
 ];
 
 @NgModule({

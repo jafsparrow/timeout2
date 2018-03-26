@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../shared/service/auth.service';
-import { NewsTeaserService } from '../common/services/news-teaser.service';
+import { AuthService } from '../../../shared/service/auth.service';
+import { NewsTeaserService } from '../../services/news-teaser.service';
 import { Observable } from 'rxjs/Observable';
 import { tap } from 'rxjs/operators';
-import { EventsService } from '../common/services/events.service';
+import { EventsService } from '../../services/events.service';
 
 @Component({
   selector: 'app-home',

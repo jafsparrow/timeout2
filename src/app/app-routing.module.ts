@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { ContainerComponent } from './container/container.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
+import { HomeComponent } from './common/components/home/home.component';
+import { LoginComponent } from './common/components/login/login.component';
+import { SignUpComponent } from './common/components/sign-up/sign-up.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { TestComponent } from './test/test.component';
 
@@ -46,7 +45,7 @@ const routes: Routes = [
   {
     path: 'test',
     component: TestComponent
-  }
+  },
 ];
 
 @NgModule({

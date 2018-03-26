@@ -12,18 +12,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material.module';
 
 import { AppComponent } from './app.component';
-import { ContainerComponent } from './container/container.component';
-import { ToolbarComponent } from './container/toolbar/toolbar.component';
-import { SidenavComponent } from './container/sidenav/sidenav.component';
-import { MainContainerComponent } from './container/main-container/main-container.component';
+// import { ContainerComponent } from './container/container.component';
+import { ToolbarComponent } from './common/components/home/toolbar/toolbar.component';
+// import { SidenavComponent } from './container/sidenav/sidenav.component';
+// import { MainContainerComponent } from './container/main-container/main-container.component';
 
 import { environment } from '../environments/environment';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './common/components/home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { NewsTeaserService } from './common/services/news-teaser.service';
-import { LoginComponent } from './login/login.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { SnackbarComponent } from './snackbar/snackbar.component';
+import { LoginComponent } from './common/components/login/login.component';
+import { SignUpComponent } from './common/components/sign-up/sign-up.component';
+import { SnackbarComponent } from './common/components/snackbar/snackbar.component';
 import { EventsService } from './common/services/events.service';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { TestComponent } from './test/test.component';
@@ -32,10 +32,10 @@ import { TestComponent } from './test/test.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ContainerComponent,
+    // ContainerComponent,
     ToolbarComponent,
-    SidenavComponent,
-    MainContainerComponent,
+    // SidenavComponent,
+    // MainContainerComponent,
     HomeComponent,
     LoginComponent,
     SignUpComponent,

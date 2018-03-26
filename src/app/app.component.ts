@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import {MatSnackBar} from '@angular/material';
-import { SnackbarComponent } from './snackbar/snackbar.component';
+import { SnackbarComponent } from './common/components/snackbar/snackbar.component';
 
 @Component({
   selector: 'app-root',
