@@ -1,9 +1,11 @@
-<p>
-  admin works!
-</p>
+<mat-drawer-container class="container">
 
-
-<button [routerLink]="['../news']">News</button>
-<button [routerLink]="['../events']">Events</button>
-
-<router-outlet></router-outlet>\
+  <mat-drawer mode="push" opened="true">
+    <app-side-nav></app-side-nav>
+    test content
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+    
+  </mat-drawer-content>
+</mat-drawer-container>

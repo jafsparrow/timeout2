@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { AdminComponent } from './admin.component';
 import { NewsAdminComponent } from './news-admin/news-admin.component';
 import { NewsAddComponent } from './news-admin/news-add/news-add.component';
@@ -18,43 +17,47 @@ const routes: Routes = [
   },
   {
     path: 'dash',
-    component: AdminComponent
-  },
-  {
-    path: 'news',
-    component: NewsAdminComponent,
-
+    component: AdminComponent,
     children: [
       {
-        path: '',
-        redirectTo: 'dashboard',
-        pathMatch: 'full'
+        path: 'news',
+        component: NewsAdminComponent,
+    
+        children: [
+          {
+            path: '',
+            redirectTo: 'dashboard',
+            pathMatch: 'full'
+          },
+          {
+            path: 'dashboard',
+            component: NewsDashboardComponent
+          },
+          {
+            path: 'add',
+            component: NewsAddComponent,
+          },
+          {
+            path: 'edit/:id',
+            component: NewsEditComponent,
+            pathMatch: 'full'
+          }
+        ]
       },
       {
-        path: 'dashboard',
-        component: NewsDashboardComponent
+        path: 'events',
+        component: EventAdminComponent,
+        children: [
+          {
+            path: 'add',
+            component: EventAddComponent
+          },
+        ]
       },
-      {
-        path: 'add',
-        component: NewsAddComponent,
-      },
-      {
-        path: 'edit/:id',
-        component: NewsEditComponent,
-        pathMatch: 'full'
-      }
     ]
   },
-  {
-    path: 'events',
-    component: EventAdminComponent,
-    children: [
-      {
-        path: 'add',
-        component: EventAddComponent
-      },
-    ]
-  },
+  
+  
 ];
 
 @NgModule({

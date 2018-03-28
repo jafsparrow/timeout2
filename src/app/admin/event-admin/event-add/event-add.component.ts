@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { EventsAdminService } from '../../common/services/events-admin.service';
+import { LocationService } from '../../common/services/location.service';
+import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Component({
   selector: 'app-event-add',
@@ -15,38 +18,49 @@ export class EventAddComponent implements OnInit {
   // eventPrizeForm: FormGroup;
   games = ['football', 'cricket', 'basket ball'];
   isSubmitting = false;
+
+  panchayat$: Observable<any[]>;
+
+  selectedPanchayat: String = null;
+  selectedDistrict: String = null;
+
+
+  
   constructor(private formBuilder: FormBuilder,
-              private eventAdmin: EventsAdminService) { }
+              private eventAdmin: EventsAdminService,
+              private locationService: LocationService) { }
 
   ngOnInit() {
     this.eventAddForm = this.formBuilder.group({
-      name: new FormControl('event name intitial', [Validators.required]),
-      date: new FormControl(''),
-      type: new FormControl(),
-      location: new FormControl('location of the event'),
-      firstPrize: new FormControl(),
-      secondPrize: new FormControl(),
-      thirdPrize: new FormControl()
+      name: ['event name intitial', [Validators.required]],
+      date: [new Date()],
+      type: ['Football'],
+      lastApplicationDate: new FormControl(''),
+      prizeDetails: this.formBuilder.group({
+        firstPrize: new FormControl('test first'),
+        secondPrize: new FormControl('second prixe'),
+        thirdPrize: new FormControl('hello 3rd')
+      })
+
     });
 
+    
     this.eventAdmin.getEvents()
       .subscribe(res => console.log(res));
+
+    this.panchayat$ = this.locationService.clubs;
+    
   }
 
-  get name() {
-    return this.eventAddForm.get('name');
+  filterClubs() {
+    this.locationService.districtFilter$.next(this.selectedDistrict);
+    this.locationService.panchayatFilter$.next(this.selectedPanchayat);
   }
-
-  get date() {
-    return this.eventAddForm.get('date');
-  }
-
-  get location() {
-    return this.eventAddForm.get('location');
-  }
+  
+  
 
   submitEvent() {
-    console.log(this.eventAddForm);
+    console.log(this.eventAddForm.value);
   }
 
   selectionChange($event) {
@@ -56,11 +70,28 @@ export class EventAddComponent implements OnInit {
   addEvent() {
     console.log(this.eventAddForm.value);
     this.isSubmitting = true;
+    let formData = this.eventAddForm.value;
     this.eventAdmin.createEvent(this.eventAddForm.value)
       .then(res => {
         console.log(res);
         this.isSubmitting = false;
       });
+  }
+
+  selectedState = null;
+  selectChange($event) {
+    console.log($event.value);
+    this.selectedState = $event.value;
+    // this.Districts;
+  }
+
+  get States() {
+    return this.eventAdmin.getStates();
+  }
+
+  get Districts() {
+    return this.eventAdmin.getDistrict(this.selectedState);
+    // return this.eventAdmin.districts$;
   }
 
 }

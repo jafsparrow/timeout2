@@ -12,5 +12,6 @@ export const environment = {
     projectId: 'timeouttest-f5324',
     storageBucket: 'timeouttest-f5324.appspot.com',
     messagingSenderId: '397007818056'
-  }
+  },
+  dataGovApiKey: '579b464db66ec23bdd000001903ba9d8e14545c16dcb85c9afbbfd53',
 };

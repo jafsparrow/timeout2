@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection  } from 'angularfire2/firestore';
 
 import { Event } from '../modals/event';
+import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class EventsAdminService {
@@ -10,6 +12,7 @@ export class EventsAdminService {
   
   constructor(private db: AngularFirestore) {
     this.eventRef = this.db.collection('events');
+    
   }
 
   getEvents() {
@@ -28,4 +31,41 @@ export class EventsAdminService {
     this.eventRef.doc(documentId).update(event);
   }
 
+  getStates() {
+    return states;
+  }
+
+  getStateObservable() {
+    return Observable.of(states);
+  }
+
+  
+
+  getDistrict(name: String) {
+    return districts.filter(item=> item.state == name)
+  }
+
 }
+
+
+
+export const states = [
+  'Kerala',
+  'Tamil Nadu',
+  'Karnataka'
+]
+
+export const districts = [
+  {
+    name: 'Malappuram',
+    state: 'Kerala',
+  },
+  {
+    name: 'Trissur',
+    state: 'Kerala',
+  },
+  {
+    name: 'Chennai',
+    state: 'Tamil Nadu'
+  }
+]

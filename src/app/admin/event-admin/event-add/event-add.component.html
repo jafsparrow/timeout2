@@ -60,6 +60,19 @@
 
 </mat-horizontal-stepper> -->
 <mat-card class="event-form-container">
+  <p>
+    <input type="text" [(ngModel)]="selectedPanchayat">
+    <input type="text" [(ngModel)]="selectedDistrict">
+  </p>
+  <p>
+    <button (click)="filterClubs()">Filter</button>
+  </p>
+  <div *ngFor="let panch of panchayat$ | async">
+    <p>
+      {{panch.name}}
+    </p>
+
+  </div>
 
   <mat-spinner
     color="accent"
@@ -67,44 +80,42 @@
     *ngIf="isSubmitting"
     ></mat-spinner>
   <form [formGroup]="eventAddForm" (ngSubmit)= "addEvent()" disabled="true">
-    <mat-horizontal-stepper  linear>
+    <mat-horizontal-stepper  linear="true">
       <mat-step label="Basic Info">
          <mat-form-field>
             <input matInput placeholder="Tournament Name" formControlName="name">
         </mat-form-field>
-    
-        <mat-form-field>
-          <input matInput placeholder="Location" formControlName="location">
-        </mat-form-field>
+
     
         <mat-form-field>
           <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="date">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-    
-        <mat-form-field>
-          <mat-select placeholder="Game" formControlName="type">
-            <mat-option *ngFor="let game of games" [value]="game">{{game}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-    
-    
-        <mat-form-field>
-          <input matInput placeholder="First Price" formControlName="firstPrize">
-        </mat-form-field>
+  
           <div>
             <button mat-button matStepperNext type="button">Next</button>
           </div>
       </mat-step>
+
       <mat-step label="Prize Details" >
-        ...
+        <div formGroupName="prizeDetails">
+        <mat-form-field>
+            <input matInput placeholder="First Prize" formControlName="firstPrize">
+        </mat-form-field>
+
+        <mat-form-field>
+              <input matInput placeholder="Second Prize" formControlName="secondPrize">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Third Prize" formControlName="thirdPrize">
+      </mat-form-field>
         <div>
           <button mat-button matStepperPrevious type="button">Back</button>
-          <button mat-button matStepperNext type="submit">Next</button>
+          <button mat-button matStepperNext type="submit">Submit</button>
+        </div>
         </div>
       </mat-step>
-      ...
     </mat-horizontal-stepper>
   </form>
 </mat-card>

@@ -2,12 +2,9 @@
 import { AngularFirestore, AngularFirestoreCollection  } from 'angularfire2/firestore';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-
 import * as firebase from 'firebase';
-
 import {ClubDetailsService } from './club-details.service';
 import { News } from '../modals/news';
-
 import { FileUpload } from '../modals/file-uploader';
 
 @Injectable()

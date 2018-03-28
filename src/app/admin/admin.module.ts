@@ -19,6 +19,8 @@ import { NewsEditComponent } from './news-admin/news-edit/news-edit.component';
 import { SharedModule } from '../shared/shared.module';
 import { EventAddComponent } from './event-admin/event-add/event-add.component';
 import { EventsAdminService } from './common/services/events-admin.service';
+import { SideNavComponent } from './common/components/side-nav/side-nav.component';
+import { LocationService } from './common/services/location.service';
 
 @NgModule({
   imports: [
@@ -38,7 +40,8 @@ import { EventsAdminService } from './common/services/events-admin.service';
     NewsAddComponent,
     NewsDashboardComponent,
     NewsEditComponent,
-    EventAddComponent],
-  providers: [ClubAdminService, NewsAdminService, EventsAdminService]
+    EventAddComponent,
+    SideNavComponent],
+  providers: [ClubAdminService, NewsAdminService, EventsAdminService, LocationService]
 })
 export class AdminModule { }
