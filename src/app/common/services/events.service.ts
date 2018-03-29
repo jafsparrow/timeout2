@@ -1,12 +1,19 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection  } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/Observable';
+
+import { Annoucement } from '../modals/annoucement';
 
 @Injectable()
 export class EventsService {
   private matches: AngularFirestoreCollection<any>;
+  private annoucementRef: AngularFirestoreCollection<any>;
+  annoucements$: Observable<Annoucement[]>;
+  
   constructor(private db: AngularFirestore) {
     console.log('eent service activated');
     this.createEventDbrefrerence();
+    this.annoucementRef = this.db.collection('events');
   }
 
   createEventDbrefrerence() {
@@ -26,5 +33,14 @@ export class EventsService {
   getThisWeekMatches() {
     return this.matches;
   }
+
+  getAnnoucemnts() {
+    this.annoucements$ = this.annoucementRef.valueChanges();
+    return this.annoucements$;
+  }
+  getFavClubsAnnoucements(id: String) {
+
+  }
+
 
 }

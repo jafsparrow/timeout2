@@ -24,6 +24,7 @@ export class EventsAdminService {
   }
 
   createEvent(event) {
+    event['club'] = 'Users Club'; // this should be taken from the logged in user club information
     return this.eventRef.add(event);
   }
 

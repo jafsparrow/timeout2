@@ -5,25 +5,31 @@ import { CommonModule } from '@angular/common';
 import { AuthService } from './service/auth.service';
 import { MaterialModule } from '../material.module';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
 // local components
 import { NewsTeaserComponent } from './components/news-teaser/news-teaser.component';
 import { MatchViewComponent } from './components/match-view/match-view.component';
 import { MatchTeamViewComponent } from './components/match-view/match-team-view/match-team-view.component';
+import { AnnouncementTeaserComponent } from './components/announcement-teaser/announcement-teaser.component';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    FlexLayoutModule
   ],
   declarations: [
     NewsTeaserComponent,
     MatchViewComponent,
-    MatchTeamViewComponent
+    MatchTeamViewComponent,
+    AnnouncementTeaserComponent
   ],
   exports: [
     MaterialModule,
-    NewsTeaserComponent
+    NewsTeaserComponent,
+    AnnouncementTeaserComponent,
+    FlexLayoutModule
   ],
   providers: []
 })

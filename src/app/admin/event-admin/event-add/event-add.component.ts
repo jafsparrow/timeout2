@@ -13,14 +13,10 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 export class EventAddComponent implements OnInit {
 
   eventAddForm: FormGroup;
-  // eventBasicForm: FormGroup;
-  // eventDetailsForm: FormGroup;
-  // eventPrizeForm: FormGroup;
-  games = ['football', 'cricket', 'basket ball'];
+  games = ['Football', 'Cricket', 'Basket ball', 'Other'];
   isSubmitting = false;
-
+  // the blow observables should be moved to fixture services
   panchayat$: Observable<any[]>;
-
   selectedPanchayat: String = null;
   selectedDistrict: String = null;
 
@@ -31,25 +27,28 @@ export class EventAddComponent implements OnInit {
               private locationService: LocationService) { }
 
   ngOnInit() {
+
+    // TODO - last application date should be default to one week ahead date.
+    const start = new Date();
+    console.log(start);
+    const end = new Date();
+    end.setDate(start.getDate() + 7);
+
+
     this.eventAddForm = this.formBuilder.group({
-      name: ['event name intitial', [Validators.required]],
-      date: [new Date()],
-      type: ['Football'],
-      lastApplicationDate: new FormControl(''),
+      name: ['', [Validators.required]],
+      date: [new Date(), [Validators.required]],
+      type: ['', [Validators.required]],
+      lastApplicationDate: [end, [Validators.required]],
       prizeDetails: this.formBuilder.group({
-        firstPrize: new FormControl('test first'),
-        secondPrize: new FormControl('second prixe'),
-        thirdPrize: new FormControl('hello 3rd')
+        firstPrize: ['', [Validators.required]],
+        secondPrize: ['', [Validators.required]],
+        thirdPrize: ['', [Validators.required]],
       })
 
     });
 
-    
-    this.eventAdmin.getEvents()
-      .subscribe(res => console.log(res));
-
-    this.panchayat$ = this.locationService.clubs;
-    
+       
   }
 
   filterClubs() {
@@ -60,6 +59,7 @@ export class EventAddComponent implements OnInit {
   
 
   submitEvent() {
+
     console.log(this.eventAddForm.value);
   }
 
@@ -68,7 +68,7 @@ export class EventAddComponent implements OnInit {
   }
 
   addEvent() {
-    console.log(this.eventAddForm.value);
+    this.eventAddForm.disable();
     this.isSubmitting = true;
     let formData = this.eventAddForm.value;
     this.eventAdmin.createEvent(this.eventAddForm.value)

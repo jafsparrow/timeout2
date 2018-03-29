@@ -1,19 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../../../shared/service/auth.service';
 import { NewsTeaserService } from '../../services/news-teaser.service';
 import { Observable } from 'rxjs/Observable';
 import { tap } from 'rxjs/operators';
 import { EventsService } from '../../services/events.service';
+import { Annoucement } from '../../modals/annoucement';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   news: Array<any>;
   isNewsLoading: boolean;
   favNews: Array<any>;
+
+  annoucement$: Observable<Annoucement[]>;
+
   isFavNewsLoading = true;
   isUserLoggedIn = false;
 
@@ -42,8 +46,12 @@ export class HomeComponent implements OnInit {
                   });
 
    this.events$ = this.matcheService.getThisWeekMatches().valueChanges();
+
+   this.annoucement$= this.matcheService.getAnnoucemnts();
   }
 
+  ngOnDestroy() {
+  }
 
 
 }

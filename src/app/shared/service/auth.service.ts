@@ -28,6 +28,7 @@ export class AuthService {
     this.user$ = this.afAuth.authState
       .switchMap(user => {
         if (user) {
+          // set local storage with the logged in users fav_club
           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
           return Observable.of(null);
@@ -84,4 +85,8 @@ private checkAuthorization(user: User, allowedRoles: string[]): boolean {
     }
     return false;
   }
+
+getUsersClub() {
+  return 'slkjsldfj sdflj';
+}
 }

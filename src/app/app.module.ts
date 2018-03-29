@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { AngularFireModule  } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material.module';
@@ -50,7 +49,6 @@ import { TestComponent } from './test/test.component';
 
     SharedModule.forRoot(),
     FormsModule,
-    FlexLayoutModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     MaterialModule
