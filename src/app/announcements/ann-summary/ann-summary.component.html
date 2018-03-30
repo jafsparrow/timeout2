@@ -1,0 +1,17 @@
+<mat-card >
+  <mat-card-header>
+    <mat-card-title>
+      {{ ann.title}}
+    </mat-card-title>
+    <mat-card-subtitle>
+      <span class="ann-publish-date"> {{ ann.date | date }}</span>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions align="end">
+    <!-- <a mat-button [routerLink]="['/news/detail', news.id]">Read more..</a> -->
+    <mat-chip-list>
+      <mat-chip>{{ann.club?.name}}</mat-chip>
+    </mat-chip-list>
+    <a mat-button [routerLink] ="['/announcements/detail', ann.club.id]">Read more..</a>
+  </mat-card-actions>
+</mat-card>

@@ -35,6 +35,10 @@ const routes: Routes = [
     loadChildren: './user-profile/user-profile.module#UserProfileModule'
   },
   {
+    path: 'announcements',
+    loadChildren: './announcements/announcements.module#AnnouncementsModule',
+  },
+  {
     path: 'login',
     component: LoginComponent
   },

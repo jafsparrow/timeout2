@@ -1,0 +1,12 @@
+<mat-card >
+  <mat-card-subtitle>
+    This is for the  clubs announcement
+  </mat-card-subtitle>
+
+  <div *ngIf="annList$ | async as annlist; else loading">
+    <div *ngFor="let ann of annlist" class="news-summary-card-container">
+      <app-ann-summary [announcement]="ann"></app-ann-summary>
+    </div>
+  </div>
+  <ng-template #loading>Loading Latest annoucements</ng-template>
+</mat-card>
