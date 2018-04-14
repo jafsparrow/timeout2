@@ -11,25 +11,27 @@ import { NewsTeaserComponent } from './components/news-teaser/news-teaser.compon
 import { MatchViewComponent } from './components/match-view/match-view.component';
 import { MatchTeamViewComponent } from './components/match-view/match-team-view/match-team-view.component';
 import { AnnouncementTeaserComponent } from './components/announcement-teaser/announcement-teaser.component';
+import { NewsSummaryViewComponent } from './components/news-teaser/news-summary-view/news-summary-view.component';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
     RouterModule,
-    FlexLayoutModule
+    FlexLayoutModule,
   ],
   declarations: [
     NewsTeaserComponent,
     MatchViewComponent,
     MatchTeamViewComponent,
-    AnnouncementTeaserComponent
+    AnnouncementTeaserComponent,
+    NewsSummaryViewComponent,
   ],
   exports: [
     MaterialModule,
     NewsTeaserComponent,
     AnnouncementTeaserComponent,
-    FlexLayoutModule
+    FlexLayoutModule,
   ],
   providers: []
 })

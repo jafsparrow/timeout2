@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Router } from '@angular/router';
 import { User } from '../modals/user';
+import { tap } from 'rxjs/operators';
 
 
 // interface User {
@@ -86,7 +87,11 @@ private checkAuthorization(user: User, allowedRoles: string[]): boolean {
     return false;
   }
 
-getUsersClub() {
-  return 'slkjsldfj sdflj';
-}
+  getUsersClub() {
+    return 'slkjsldfj sdflj';
+  }
+  getUserFollowingClubs() {
+      return ['5ZRSBNKpB1u2OJ0urK0w','HYU2JPaH9ys1nKQOHKKE','U9HsplCcUBvfcV95DOoP'];
+
+  }
 }

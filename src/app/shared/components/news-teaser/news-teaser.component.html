@@ -1,36 +1,22 @@
-<mat-card>
-  
 
-<div *ngIf="news as newslist; else loading">
-    <mat-card-header>{{teaserTitle}}</mat-card-header>
-    <mat-card *ngFor="let news of newslist" class="news-summary-card-container">
+
+<mat-card class="teaser-container">
+    <div *ngIf="news as newslist; else loading">
         <mat-card-header>
-          <mat-card-title>
-            {{ news.title}}
+          <mat-card-title class="teaser-title">
+              {{teaserTitle}}
+              
           </mat-card-title>
-          <mat-card-subtitle>
-            <span>{{ news.author }} </span>
-            <span class="news-publish-date">: {{ news.published_date | date }}</span>
-          </mat-card-subtitle>
         </mat-card-header>
-      
-        <mat-card-content [ngStyle]="{ 'background-image': 'url(' + news.image + ')','background-position': 'center','background-size': 'cover', 'min-height': '150px'}"
-          class="news-summary-container">
-          <div class="news-summary">
-            <div class="news-summary-text">
-              {{news.summary}}
-      
-            </div>
-          </div>
-        </mat-card-content>
-      
-        <mat-card-actions align="end">
-          <a mat-button [routerLink]="['/news/detail', news.id]">Read more..</a>
-        </mat-card-actions>
-      </mat-card>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutAlign="start none" fxFill [@listAnimation]="newslist.length">
+          <div *ngFor="let newsItem of newslist" class="news-summary-card-container" fxFlex="33%" fxFlex.lg="25">
+            <app-news-summary-view [news]="newsItem"></app-news-summary-view>
+        </div>
+
+        </div>
     </div>
     
     
     <ng-template #loading>Loading the news</ng-template>
 
-  </mat-card>
+</mat-card>

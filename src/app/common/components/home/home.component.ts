@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { tap } from 'rxjs/operators';
 import { EventsService } from '../../services/events.service';
 import { Annoucement } from '../../modals/annoucement';
+import { switchMap } from 'rxjs/operator/switchMap';
 
 @Component({
   selector: 'app-home',
@@ -19,13 +20,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   annoucement$: Observable<Annoucement[]>;
 
   isFavNewsLoading = true;
-  isUserLoggedIn = false;
+  isUserLoggedIn = true;
 
   events$: Observable<any>;
   constructor(private authSerivice: AuthService,
               private newsTeaser: NewsTeaserService,
               private matcheService: EventsService) {
-                this.isNewsLoading = true;
+              this.isNewsLoading = true;
                }
 
   ngOnInit() {
@@ -37,7 +38,7 @@ export class HomeComponent implements OnInit, OnDestroy {
                     }
                   });
 
-    this.newsTeaser.getFavClubNewsFive()
+    this.newsTeaser.getFavNews()
                   .subscribe(res => {
                     this.favNews = res;
                     if (res.length !== 0) {
@@ -45,8 +46,9 @@ export class HomeComponent implements OnInit, OnDestroy {
                     }
                   });
 
-   this.events$ = this.matcheService.getThisWeekMatches().valueChanges();
 
+   this.events$ = this.matcheService.getThisWeekMatches().valueChanges();
+                
    this.annoucement$= this.matcheService.getAnnoucemnts();
   }
 

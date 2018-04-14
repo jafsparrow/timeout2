@@ -50,6 +50,10 @@ const routes: Routes = [
     path: 'test',
     component: TestComponent
   },
+  {
+    path: 'onboard',
+    loadChildren: './onboarding/onboarding.module#OnboardingModule'
+  }
 ];
 
 @NgModule({

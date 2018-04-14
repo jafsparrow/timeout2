@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
+import { NgxEditorModule } from 'ngx-editor';
+
 import { FormsModule } from '@angular/forms';
 import { AngularFireModule  } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -51,7 +53,9 @@ import { TestComponent } from './test/test.component';
     FormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    
+    NgxEditorModule
   ],
   entryComponents: [SnackbarComponent],
   providers: [NewsTeaserService, EventsService, AuthGuard],

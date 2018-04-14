@@ -7,5 +7,10 @@
   <mat-drawer-content>
     <router-outlet></router-outlet>
     
+    <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="htmlContent"
+      [height]="400"
+      [toolbar]="toolbar"></app-ngx-editor>
+
+      {{htmlContent}}
   </mat-drawer-content>
 </mat-drawer-container>

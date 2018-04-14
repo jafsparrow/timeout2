@@ -1,0 +1,14 @@
+.minute-update {
+    width: 300px;
+}
+
+.live-updates {
+    background-color: green;
+    min-height: 60px;
+}
+.this-team {
+    text-align: left;
+}
+.that-team {
+    text-align: right;
+}

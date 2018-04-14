@@ -23,6 +23,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatStepperModule} from '@angular/material/stepper';
 
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatPaginatorModule,
     MatSortModule,
     MatSnackBarModule,
-    MatStepperModule
+    MatStepperModule,
+    MatSlideToggleModule
   ],
   exports: [
     MatButtonModule,
@@ -72,7 +74,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatPaginatorModule,
     MatSortModule,
     MatSnackBarModule,
-    MatStepperModule
+    MatStepperModule,
+    MatSlideToggleModule
   ],
 })
 export class MaterialModule {}

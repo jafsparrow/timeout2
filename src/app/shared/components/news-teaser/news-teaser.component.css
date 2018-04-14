@@ -1,29 +1,11 @@
-.news-summary-card-container {
-    margin: 10px;
-}
-
-
-.news-summary-container {
-    background-position: center;background-size: cover; min-height: 150px;
+.teaser-container {
+    margin: 0px;
+    padding: 5px;
     
+    font-family: arial,sans-serif!important;
 }
 
-.news-publish-date {
-    font-weight: bold;
-}
-
-.news-summary {
-
-    /* padding-top: 50px; */
-}
-
-
-.news-summary-text {
-
-    /* text-shadow: 1px 1px #f8f8f8; */
-    color: white;
-    background: rgba(0,0,0,0.4);
-    line-height: 2;
-    padding: 10px;
-    /* justify-content: space-around;  */
+.teaser-title {
+    padding: 5px;
+    font-size: 20px;
 }

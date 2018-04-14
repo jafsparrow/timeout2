@@ -21,6 +21,10 @@ import { EventAddComponent } from './event-admin/event-add/event-add.component';
 import { EventsAdminService } from './common/services/events-admin.service';
 import { SideNavComponent } from './common/components/side-nav/side-nav.component';
 import { LocationService } from './common/services/location.service';
+import { AnnouncementService } from './common/services/announcement.service';
+
+import { NgxEditorModule } from 'ngx-editor';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -30,7 +34,9 @@ import { LocationService } from './common/services/location.service';
     AdminRoutingModule,
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot(),
-    SharedModule
+    SharedModule,
+    NgxEditorModule,
+    HttpClientModule
   ],
   declarations: [
     AdminComponent,
@@ -42,6 +48,6 @@ import { LocationService } from './common/services/location.service';
     NewsEditComponent,
     EventAddComponent,
     SideNavComponent],
-  providers: [ClubAdminService, NewsAdminService, EventsAdminService, LocationService]
+  providers: [ClubAdminService, NewsAdminService, EventsAdminService, LocationService, AnnouncementService]
 })
 export class AdminModule { }
